@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Shield, PlusCircle, Trash, Edit, Check, UserCircle, Briefcase, Plus, Save } from 'lucide-react';
 
-const HARDCODED_PASSWORD_HASH = '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b'; // SHA-256 for "portfolio2026"
+const HARDCODED_PASSWORD_HASH = '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b'; // SHA-256 for ""
 
 // Helper function to hash string with SHA-256 using Web Crypto API
 async function hashPassword(password) {
@@ -280,7 +280,7 @@ export default function AdminPanel({
                 required
               />
               <span style={{ fontSize: 10, color: 'var(--text-secondary)' }}>
-                Hint: Standard default key is <code>portfolio2026</code>
+                {/* Hint: Standard default key is <code></code> */}
               </span>
             </div>
 
