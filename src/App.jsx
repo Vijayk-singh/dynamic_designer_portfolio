@@ -30,7 +30,13 @@ const DEFAULT_PROFILE = {
   taglines: [
     '🎥 Video Editor', '✨ Motion Graphics', '📐 Graphic Designer', '🎨 UI/UX Specialist'
   ],
-  uxTag: "UI/UX Lite"
+  uxTag: "UI/UX Lite",
+  totalProjectsVal: "4",
+  totalProjectsLbl: "Total Projects",
+  impactfulWorkVal: "100%",
+  impactfulWorkLbl: "Impactful Work Done",
+  categoryWiseVal: "4 Video, 3 Graphics",
+  categoryWiseLbl: "Category Breakdown"
 };
 
 export default function App() {
@@ -211,6 +217,8 @@ export default function App() {
           profileData={profileData} 
           onBuildResumeClick={() => setShowResumeBuilder(true)}
           isAdmin={isAdminLoggedIn}
+          projects={projects}
+          onUpdateProfile={handleUpdateProfile}
         />
         
         <ProjectGrid 

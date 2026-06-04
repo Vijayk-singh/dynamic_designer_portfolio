@@ -153,6 +153,7 @@ export default function AdminPanel({
   const handleProfileSubmit = (e) => {
     e.preventDefault();
     const updatedProfile = {
+      ...profileData,
       name: profileName,
       bio: profileBio,
       location: profileLocation,

@@ -352,6 +352,65 @@
   letter-spacing: 0.5px;
 }
 
+.stat-input-val {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--border-color);
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  width: 100%;
+  padding: 2px 0;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.stat-input-val:hover {
+  border-bottom-color: var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.stat-input-val:focus {
+  border-bottom-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.stat-input-lbl {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  padding: 2px 0;
+  outline: none;
+  margin-top: 4px;
+  transition: border-color 0.2s, background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.stat-input-lbl:hover {
+  border-bottom-color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.stat-input-lbl:focus {
+  border-bottom-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 992px) {
+  .stat-input-val, .stat-input-lbl {
+    text-align: center;
+  }
+}
+
 /* Portfolio Projects Section */
 .portfolio-section {
   padding: 40px;

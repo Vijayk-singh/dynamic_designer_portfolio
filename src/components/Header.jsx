@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Globe, MapPin, Briefcase, Calendar, FileText } from 'lucide-react';
 
-export default function Header({ profileData, onBuildResumeClick, isAdmin }) {
+export default function Header({ profileData, onBuildResumeClick, isAdmin, projects, onUpdateProfile }) {
   if (!profileData) return null;
 
   const {
@@ -14,7 +14,13 @@ export default function Header({ profileData, onBuildResumeClick, isAdmin }) {
     experience = [],
     avatarUrl = "/images/profile_avatar.png",
     taglines = [],
-    uxTag = ""
+    uxTag = "",
+    totalProjectsVal = projects ? String(projects.length) : "4",
+    totalProjectsLbl = "Total Projects",
+    impactfulWorkVal = "100%",
+    impactfulWorkLbl = "Impactful Work Done",
+    categoryWiseVal = "4 Video, 3 Graphics",
+    categoryWiseLbl = "Category Breakdown"
   } = profileData;
 
   return (
@@ -119,15 +125,105 @@ export default function Header({ profileData, onBuildResumeClick, isAdmin }) {
         </div>
 
         {/* Right Column: Profile Stats & Resume builder Trigger */}
-        <div className="profile-stats-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="profile-stats-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minWidth: '220px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div className="stat-item">
-              <div className="stat-val">52.4K</div>
-              <div className="stat-lbl">Project Views</div>
+              <input 
+                type="text"
+                className="stat-input-val"
+                value={totalProjectsVal}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      totalProjectsVal: e.target.value
+                    });
+                  }
+                }}
+                placeholder="4"
+                title="Click to edit Total Projects value"
+              />
+              <input 
+                type="text"
+                className="stat-input-lbl"
+                value={totalProjectsLbl}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      totalProjectsLbl: e.target.value
+                    });
+                  }
+                }}
+                placeholder="Total Projects"
+                title="Click to edit Total Projects label"
+              />
             </div>
+            
             <div className="stat-item">
-              <div className="stat-val">6.8K</div>
-              <div className="stat-lbl">Appreciations</div>
+              <input 
+                type="text"
+                className="stat-input-val"
+                value={categoryWiseVal}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      categoryWiseVal: e.target.value
+                    });
+                  }
+                }}
+                placeholder="4 Video, 3 Graphics"
+                title="Click to edit Category breakdown value"
+              />
+              <input 
+                type="text"
+                className="stat-input-lbl"
+                value={categoryWiseLbl}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      categoryWiseLbl: e.target.value
+                    });
+                  }
+                }}
+                placeholder="Category Breakdown"
+                title="Click to edit Category breakdown label"
+              />
+            </div>
+
+            <div className="stat-item">
+              <input 
+                type="text"
+                className="stat-input-val"
+                value={impactfulWorkVal}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      impactfulWorkVal: e.target.value
+                    });
+                  }
+                }}
+                placeholder="100%"
+                title="Click to edit Impactful Work value"
+              />
+              <input 
+                type="text"
+                className="stat-input-lbl"
+                value={impactfulWorkLbl}
+                onChange={(e) => {
+                  if (onUpdateProfile) {
+                    onUpdateProfile({
+                      ...profileData,
+                      impactfulWorkLbl: e.target.value
+                    });
+                  }
+                }}
+                placeholder="Impactful Work Done"
+                title="Click to edit Impactful Work label"
+              />
             </div>
           </div>
           
